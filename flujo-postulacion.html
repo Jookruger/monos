@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Flujo Postulación Asesorías 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: documento de trabajo a una columna; diagrama vertical del proceso, luego filtros, reparto de puntaje y pendientes */
+:root{
+  --bg:#f4f6f2; --surface:#ffffff; --fg:#1c2620; --muted:#5a665e; --line:#c6d0c8;
+  --accent:#2d6a45; --accent-soft:#e1ede4; --warn:#9a5316; --warn-soft:#f7ebde;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Public Sans","Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131a16; --surface:#1b241f; --fg:#e4ebe6; --muted:#9aa89f; --line:#34423a;
+  --accent:#7cc496; --accent-soft:#1f3528; --warn:#e3a066; --warn-soft:#3a2a1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131a16; --surface:#1b241f; --fg:#e4ebe6; --muted:#9aa89f; --line:#34423a;
+  --accent:#7cc496; --accent-soft:#1f3528; --warn:#e3a066; --warn-soft:#3a2a1c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:32px 56px;display:grid;gap:44px}
+header{display:grid;gap:10px}
+.eyebrow{font-family:var(--f-display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.08;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:700;font-size:22px;margin:0;text-wrap:balance}
+p{margin:0;max-width:66ch}
+.lede{color:var(--muted);font-size:16px}
+.stamp{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+section{display:grid;gap:16px;min-width:0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+figure{margin:0;display:grid;gap:10px}
+figure svg{display:block;width:100%;min-width:640px;height:auto;color:var(--fg);padding:8px}
+figcaption{font-size:13px;color:var(--muted);max-width:66ch}
+svg .n{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+svg .n.acc{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+svg .n.w{fill:var(--warn-soft);stroke:var(--warn)}
+svg .n.d{fill:var(--bg);stroke:var(--fg);stroke-width:1.5}
+svg .t{fill:var(--fg);font-family:var(--f-display);font-weight:700;font-size:14px}
+svg .s{fill:var(--muted);font-family:var(--f-body);font-size:12px}
+svg .t.w{fill:var(--warn)}
+svg .s.w2{fill:var(--warn);font-size:10px}
+svg .num{fill:var(--accent);font-family:var(--f-mono);font-size:12px}
+svg .e{fill:none;stroke:var(--muted);stroke-width:1.5}
+svg .e.dash{stroke-dasharray:5 4}
+svg .lab{fill:var(--accent);font-family:var(--f-display);font-weight:700;font-size:12px}
+svg .ah{fill:var(--muted)}
+.rule{border-left:3px solid var(--accent);background:var(--surface);padding:14px 18px;border-radius:0 8px 8px 0;display:grid;gap:8px}
+.rule ul{margin:0;padding-left:20px;display:grid;gap:4px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--f-display);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--bg)}
+tbody tr:last-child td{border-bottom:none}
+td.v{font-weight:600}
+td.pts{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.tag.f{background:var(--warn-soft);color:var(--warn)}
+.tag.p{background:var(--accent-soft);color:var(--accent)}
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:6px;align-content:start}
+.block .big{font-family:var(--f-mono);font-size:28px;color:var(--accent);font-variant-numeric:tabular-nums}
+.block h3{font-family:var(--f-display);font-size:15px;margin:0}
+.block p{font-size:13px;color:var(--muted)}
+.pending ol{margin:0;padding-left:22px;display:grid;gap:6px;max-width:66ch}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Convenio INDAP–GORE Los Ríos · Asesorías especialistas 2027</span>
+  <h1>Flujo de postulación y priorización de asesorados</h1>
+  <p class="lede">Proceso de postulación de las cinco líneas, cada una con su formulario. El formulario lo registra un profesional en entrevista con el postulante; no es de autollenado.</p>
+  <span class="stamp">Actualizado con las decisiones del 12 de octubre de 2026</span>
+</header>
+
+<section>
+  <h2>Proceso</h2>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 760 1336" role="img" aria-label="Diagrama de flujo: difusión, postulación asistida en cinco formularios, filtros comunes, filtro propio de cada uno de los cinco formularios, unión, valoración del equipo del Convenio, valoración del Jefe de Área, cálculo en la planilla, ranking por línea, comisión, cupos con lista de espera, publicación y nómina a la consultora de cada línea.">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+      </defs>
+
+      <rect class="n" x="180" y="20" width="400" height="56" rx="8"/>
+      <text class="t" x="380" y="44" text-anchor="middle">Difusión de la convocatoria</text>
+      <text class="s" x="380" y="63" text-anchor="middle">agencias de área, municipios, equipos PRODESAL y PDTI</text>
+
+      <path class="e" d="M380 76 V110" marker-end="url(#ah)"/>
+      <rect class="n acc" x="180" y="112" width="400" height="76" rx="8"/>
+      <text class="t" x="380" y="138" text-anchor="middle">Postulación asistida: 5 formularios, uno por línea</text>
+      <text class="s" x="380" y="158" text-anchor="middle">un profesional registra la entrevista; el postulante firma</text>
+      <text class="s" x="380" y="175" text-anchor="middle">una línea; una segunda solo si una es Cooperativas</text>
+
+      <path class="e" d="M380 188 V220" marker-end="url(#ah)"/>
+      <polygon class="n d" points="380,222 550,280 380,338 210,280"/>
+      <text class="t" x="380" y="276" text-anchor="middle">¿Cumple los</text>
+      <text class="t" x="380" y="294" text-anchor="middle">filtros comunes?</text>
+      <path class="e" d="M550 280 H570" marker-end="url(#ah)"/>
+      <text class="lab" x="560" y="270" text-anchor="middle">No</text>
+      <rect class="n w" x="572" y="246" width="172" height="68" rx="8"/>
+      <text class="t w" x="658" y="272" text-anchor="middle">No admisible</text>
+      <text class="s" x="658" y="291" text-anchor="middle">se notifica el motivo</text>
+      <text class="s" x="658" y="306" text-anchor="middle">y la vía de reclamo</text>
+
+      <path class="e" d="M380 338 V358 M88 358 H672"/>
+      <text class="lab" x="392" y="352">Sí</text>
+      
+      <path class="e" d="M88 358 V380" marker-end="url(#ah)"/>
+      <rect class="n" x="20" y="382" width="136" height="110" rx="8"/>
+      <text class="num" x="88" y="400" text-anchor="middle">FORMULARIO</text>
+      <text class="t" x="88" y="420" text-anchor="middle">Agroecología</text>
+      <text class="t" x="88" y="437" text-anchor="middle">y bioinsumos</text>
+      <text class="s" x="88" y="457" text-anchor="middle">superficie, espacio apto</text>
+      <text class="s" x="88" y="472" text-anchor="middle">y acta 60% en grupos</text>
+      <text class="s w2" x="88" y="487" text-anchor="middle">no cumple: no admisible</text>
+      <path class="e" d="M88 492 V512"/>
+      <path class="e" d="M234 358 V380" marker-end="url(#ah)"/>
+      <rect class="n" x="166" y="382" width="136" height="110" rx="8"/>
+      <text class="num" x="234" y="400" text-anchor="middle">FORMULARIO</text>
+      <text class="t" x="234" y="420" text-anchor="middle">Maquinaria</text>
+      <text class="t" x="234" y="437" text-anchor="middle">agrícola</text>
+      <text class="s" x="234" y="457" text-anchor="middle">maquinaria o</text>
+      <text class="s" x="234" y="472" text-anchor="middle">implementos en uso</text>
+      <text class="s w2" x="234" y="487" text-anchor="middle">no cumple: no admisible</text>
+      <path class="e" d="M234 492 V512"/>
+      <path class="e" d="M380 358 V380" marker-end="url(#ah)"/>
+      <rect class="n" x="312" y="382" width="136" height="110" rx="8"/>
+      <text class="num" x="380" y="400" text-anchor="middle">FORMULARIO</text>
+      <text class="t" x="380" y="420" text-anchor="middle">Agregación</text>
+      <text class="t" x="380" y="437" text-anchor="middle">de valor</text>
+      <text class="s" x="380" y="457" text-anchor="middle">materia prima propia,</text>
+      <text class="s" x="380" y="472" text-anchor="middle">incluidas leche y carne</text>
+      <text class="s w2" x="380" y="487" text-anchor="middle">no cumple: no admisible</text>
+      <path class="e" d="M380 492 V512"/>
+      <path class="e" d="M526 358 V380" marker-end="url(#ah)"/>
+      <rect class="n" x="458" y="382" width="136" height="110" rx="8"/>
+      <text class="num" x="526" y="400" text-anchor="middle">FORMULARIO</text>
+      <text class="t" x="526" y="420" text-anchor="middle">Rutas</text>
+      <text class="t" x="526" y="437" text-anchor="middle">turísticas</text>
+      <text class="s" x="526" y="457" text-anchor="middle">sin filtro propio:</text>
+      <text class="s" x="526" y="472" text-anchor="middle">el nivel suma puntaje</text>
+      
+      <path class="e" d="M526 492 V512"/>
+      <path class="e" d="M672 358 V380" marker-end="url(#ah)"/>
+      <rect class="n" x="604" y="382" width="136" height="110" rx="8"/>
+      <text class="num" x="672" y="400" text-anchor="middle">FORMULARIO</text>
+      <text class="t" x="672" y="420" text-anchor="middle">Gestión</text>
+      <text class="t" x="672" y="437" text-anchor="middle">cooperativa</text>
+      <text class="s" x="672" y="457" text-anchor="middle">cooperativa vigente o</text>
+      <text class="s" x="672" y="472" text-anchor="middle">grupo en formación</text>
+      <text class="s w2" x="672" y="487" text-anchor="middle">no cumple: no admisible</text>
+      <path class="e" d="M672 492 V512"/>
+      <path class="e" d="M88 512 H672 M380 512 V530" marker-end="url(#ah)"/>
+
+      <rect class="n acc" x="180" y="532" width="400" height="76" rx="8"/>
+      <text class="t" x="380" y="558" text-anchor="middle">Valoración del equipo del Convenio</text>
+      <text class="s" x="380" y="578" text-anchor="middle">comunes: 40 puntos, 20 por participación INDAP–GORE</text>
+      <text class="s" x="380" y="595" text-anchor="middle">criterios del formulario de la línea: 40 puntos</text>
+
+      <path class="e" d="M380 608 V640" marker-end="url(#ah)"/>
+      <rect class="n acc" x="180" y="642" width="400" height="76" rx="8"/>
+      <text class="t" x="380" y="668" text-anchor="middle">Valoración del Jefe de Área</text>
+      <text class="s" x="380" y="688" text-anchor="middle">Nota de Área: 20 puntos, en ficha separada</text>
+      <text class="s" x="380" y="705" text-anchor="middle">rúbrica: conducta crediticia, inversiones previas, pertinencia</text>
+
+      <path class="e" d="M380 718 V750" marker-end="url(#ah)"/>
+      <rect class="n" x="180" y="752" width="400" height="56" rx="8"/>
+      <text class="t" x="380" y="776" text-anchor="middle">Planilla de respuestas vinculada</text>
+      <text class="s" x="380" y="795" text-anchor="middle">suma los puntajes de 0 a 100</text>
+
+      <path class="e" d="M380 808 V840" marker-end="url(#ah)"/>
+      <rect class="n" x="180" y="842" width="400" height="56" rx="8"/>
+      <text class="t" x="380" y="866" text-anchor="middle">Ranking por línea</text>
+      <text class="s" x="380" y="885" text-anchor="middle">Maquinaria se ordena en dos lotes, norte y sur</text>
+
+      <path class="e" d="M380 898 V930" marker-end="url(#ah)"/>
+      <rect class="n" x="180" y="932" width="400" height="56" rx="8"/>
+      <text class="t" x="380" y="956" text-anchor="middle">Comisión evaluadora</text>
+      <text class="s" x="380" y="975" text-anchor="middle">revisa medios de verificación y firma el acta</text>
+
+      <path class="e" d="M380 988 V1000" marker-end="url(#ah)"/>
+      <polygon class="n d" points="380,1002 520,1052 380,1102 240,1052"/>
+      <text class="t" x="380" y="1048" text-anchor="middle">¿Dentro de los</text>
+      <text class="t" x="380" y="1066" text-anchor="middle">cupos de la línea?</text>
+      <path class="e" d="M520 1052 H570" marker-end="url(#ah)"/>
+      <text class="lab" x="545" y="1044" text-anchor="middle">No</text>
+      <rect class="n" x="572" y="1022" width="172" height="60" rx="8"/>
+      <text class="t" x="658" y="1046" text-anchor="middle">Lista de espera</text>
+      <text class="s" x="658" y="1065" text-anchor="middle">en orden de puntaje</text>
+      <path class="e dash" d="M658 1082 V1170 H582" marker-end="url(#ah)"/>
+      <text class="s" x="666" y="1130">si hay renuncia</text>
+
+      <path class="e" d="M380 1102 V1140" marker-end="url(#ah)"/>
+      <text class="lab" x="392" y="1126">Sí</text>
+      <rect class="n" x="180" y="1142" width="400" height="56" rx="8"/>
+      <text class="t" x="380" y="1166" text-anchor="middle">Publicación y notificación</text>
+      <text class="s" x="380" y="1185" text-anchor="middle">a seleccionados y a quienes quedan en espera</text>
+
+      <path class="e" d="M380 1198 V1236" marker-end="url(#ah)"/>
+      <rect class="n acc" x="180" y="1238" width="400" height="76" rx="8"/>
+      <text class="t" x="380" y="1264" text-anchor="middle">Nómina a la consultora de cada línea</text>
+      <text class="s" x="380" y="1284" text-anchor="middle">en el mes 1 contacta al 80% de los usuarios para</text>
+      <text class="s" x="380" y="1301" text-anchor="middle">elaborar el Plan de Trabajo de la cuota 1</text>
+    </svg>
+    </div>
+    <figcaption>Hay cinco formularios, uno por línea. Todos comparten los filtros comunes; luego cada formulario aplica su propio filtro y los cinco vuelven a un mismo proceso de valoración. El puntaje se compara solo dentro de cada línea, nunca entre líneas.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Filtros de admisibilidad</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Filtro</th><th>Aplica a</th><th>Cómo se verifica</th></tr></thead>
+    <tbody>
+      <tr><td class="v">Domicilio, predio o emprendimiento en Los Ríos</td><td><span class="tag f">Todas</span></td><td>Registro INDAP o rol de avalúo</td></tr>
+      <tr><td class="v">Requisitos de usuario INDAP, Ley 18.910</td><td><span class="tag f">Todas</span></td><td>Acreditación INDAP</td></tr>
+      <tr><td class="v">Sin deuda morosa con INDAP</td><td><span class="tag f">Todas</span></td><td>Registro INDAP</td></tr>
+      <tr><td class="v">Sin otro incentivo con el mismo objetivo</td><td><span class="tag f">Todas</span></td><td>Registro de programas INDAP; participar en SAT, PRODESAL o PDTI no excluye</td></tr>
+      <tr><td class="v">Compromiso de participar en todo el proceso</td><td><span class="tag f">Todas</span></td><td>Declaración firmada</td></tr>
+      <tr><td class="v">Inscripción como receptor de fondos públicos, Ley 19.862</td><td><span class="tag f">Organizaciones con PJ</span></td><td>Certificado</td></tr>
+      <tr><td class="v">Superficie para cultivo demostrativo, espacio apto para bioinsumos y acta con 60% de socios en grupos</td><td><span class="tag f">Agroecología</span></td><td>Rol o contrato, visita y acta; se acepta menos de 1 ha con justificación técnica</td></tr>
+      <tr><td class="v">Maquinaria o implementos en uso</td><td><span class="tag f">Maquinaria</span></td><td>Factura, acta de entrega o visita</td></tr>
+      <tr><td class="v">Materia prima propia: hortalizas, papas, berries, cereales, leche o carne</td><td><span class="tag f">Agregación de valor</span></td><td>Declaración y visita</td></tr>
+      <tr><td class="v">Cooperativa vigente o grupo con intención de constituirse</td><td><span class="tag f">Cooperativas</span></td><td>Certificado de vigencia o acta</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Rutas turísticas no tiene filtro propio: el nivel en Turismo Rural INDAP suma puntaje.</p>
+</section>
+
+<section>
+  <h2>Cómo se reparten los 100 puntos</h2>
+  <div class="blocks">
+    <div class="block"><span class="big">40</span><h3>Criterios comunes, equipo del Convenio</h3><p>La participación previa en el Programa INDAP–GORE vale 20. Los otros 20 se reparten entre inicio de actividades, ventas, canal, rubro, focalización, RSH, tenencia, localidad aislada, relevo, organización, ferias y prácticas sustentables.</p></div>
+    <div class="block"><span class="big">40</span><h3>Criterios de la línea, equipo del Convenio</h3><p>Todas las preguntas del formulario de la línea puntúan, incluidas las de sí o no. En Agregación de valor, el equipo además valora la demanda y la factibilidad del prototipo.</p></div>
+    <div class="block"><span class="big">20</span><h3>Nota de Área, Jefe de Área</h3><p>La entrega el Jefe de Área, después del equipo del Convenio, en una ficha separada, con rúbrica de conducta crediticia, historial de inversiones y pertinencia.</p></div>
+  </div>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Variable</th><th>Sentido</th><th>Escala decidida</th></tr></thead>
+    <tbody>
+      <tr><td class="v">Participación previa INDAP–GORE</td><td><span class="tag p">Suma quien participó</span></td><td>Prioridad del programa; quien no participó puede postular con menor puntaje</td></tr>
+      <tr><td class="v">Ventas anuales</td><td><span class="tag p">Premia la madurez</span></td><td class="pts">sin ventas · ≤500 UF · 501 a 2.000 · 2.001 a 4.000 · &gt;4.000</td></tr>
+      <tr><td class="v">Inicio de actividades y canal de venta</td><td><span class="tag p">Premia la madurez</span></td><td>Criterios separados, con menor peso cada uno</td></tr>
+      <tr><td class="v">Nivel en Turismo Rural INDAP</td><td><span class="tag p">Premia la madurez</span></td><td>Consolidado, en desarrollo, sin acreditación con potencial</td></tr>
+      <tr><td class="v">Capacitación, registros y licencia en Maquinaria</td><td><span class="tag f">Premia la brecha</span></td><td>Más puntaje a quien no los tiene, porque la línea viene a cerrarla</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Cuándo una variable es no arbitraria</h2>
+  <div class="rule">
+    <p>Una variable sirve para discriminar entre postulantes cuando cumple las cinco condiciones. Si falla una, se cae ante un reclamo.</p>
+    <ul>
+      <li>Es objetiva: dos evaluadores llegan al mismo resultado.</li>
+      <li>Se acredita con un documento o registro, no con la sola palabra del postulante.</li>
+      <li>Tiene relación directa con el objetivo de la línea.</li>
+      <li>Está publicada en las bases antes de abrir la postulación, con su puntaje.</li>
+      <li>Se aplica igual a todos los postulantes de la misma línea.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pending">
+  <h2>Por definir antes de cerrar las bases</h2>
+  <ol>
+    <li>Cómo se reparten los otros 20 puntos comunes entre sus criterios.</li>
+        <li>Qué comunas van al lote norte y cuáles al lote sur de Maquinaria.</li>
+    <li>Si en Maquinaria tener registros y licencia sigue restando puntaje o pasa a sumar.</li>
+    <li>Cupos por línea, puntaje mínimo de selección y orden de las reglas de desempate.</li>
+    <li>Plazo y vía para reclamar una declaración de no admisible.</li>
+  </ol>
+</section>
+</div>
+
+</body>
+</html>
