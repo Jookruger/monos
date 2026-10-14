@@ -1,0 +1,298 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Recorrido del Formulario de Postulación 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: una columna vertical de secciones unidas por conectores; en la pregunta 1.11 el recorrido se abre en cinco columnas y vuelve a juntarse en la sección 5. */
+:root{
+  --bg:#F5F7F4; --surface:#FFFFFF; --ink:#18241E; --muted:#5B6A62; --line:#D5DDD7;
+  --accent:#1F5A44; --accent-soft:#E3EEE8;
+  --filter:#B3261E; --filter-soft:#FBE9E7;
+  --score:#8A6100; --score-soft:#F8EFD8;
+  --reg:#4A5B66; --reg-soft:#E8EDF0;
+  --branch:#2457A6; --branch-soft:#E4ECF8;
+  --info:#6B4E9B; --info-soft:#EFE9F7;
+  --f-display:"Archivo Narrow","Arial Narrow",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111814; --surface:#18221D; --ink:#E4ECE7; --muted:#9AABA2; --line:#2E3B34;
+  --accent:#7CC4A4; --accent-soft:#1E3229;
+  --filter:#FF8A80; --filter-soft:#3A1F1C;
+  --score:#E8C066; --score-soft:#33291A;
+  --reg:#A9BAC5; --reg-soft:#222C31;
+  --branch:#8DB4F2; --branch-soft:#1C2940;
+  --info:#C3A8EC; --info-soft:#2A2238; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111814; --surface:#18221D; --ink:#E4ECE7; --muted:#9AABA2; --line:#2E3B34;
+  --accent:#7CC4A4; --accent-soft:#1E3229;
+  --filter:#FF8A80; --filter-soft:#3A1F1C;
+  --score:#E8C066; --score-soft:#33291A;
+  --reg:#A9BAC5; --reg-soft:#222C31;
+  --branch:#8DB4F2; --branch-soft:#1C2940;
+  --info:#C3A8EC; --info-soft:#2A2238; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+header h1{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:4px 0 8px;text-wrap:balance;letter-spacing:-.01em}
+.eyebrow{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--accent);font-weight:600}
+header p{margin:0;color:var(--muted);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.chip{font-family:var(--f-display);font-weight:600;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.u-filtro{background:var(--filter-soft);color:var(--filter)}
+.u-puntua{background:var(--score-soft);color:var(--score)}
+.u-registro{background:var(--reg-soft);color:var(--reg)}
+.u-ramifica{background:var(--branch-soft);color:var(--branch)}
+.u-instruccion{background:var(--info-soft);color:var(--info)}
+.u-equipo{background:var(--score-soft);color:var(--score);outline:1px dashed var(--score)}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+@media (max-width:980px){.layout{grid-template-columns:minmax(0,1fr)}}
+.flow{display:flex;flex-direction:column;align-items:stretch;min-width:0}
+.conn{width:2px;height:26px;background:var(--line);margin:0 auto;position:relative}
+.conn::after{content:"";position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--line);border-bottom:0}
+.conn .lbl{position:absolute;left:12px;top:3px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+
+.sec{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;min-width:0}
+.sec>h2{margin:0;padding:10px 14px;font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.01em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);background:var(--accent-soft)}
+.sec>h2 small{font-family:var(--f-body);font-weight:400;font-size:12.5px;color:var(--muted)}
+.sec .desc{padding:8px 14px;font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line)}
+ol.qs{list-style:none;margin:0;padding:0}
+.q{display:grid;grid-template-columns:56px minmax(0,1fr);gap:4px 10px;padding:9px 14px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.code{font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--accent);padding-top:1px;font-variant-numeric:tabular-nums}
+.qt{font-weight:500}
+.meta{grid-column:2;display:flex;flex-wrap:wrap;gap:5px 8px;align-items:center;font-size:12px;color:var(--muted)}
+.req{color:var(--ink);font-weight:600}
+.opts{grid-column:2;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 6px}
+.opt{padding:1px 6px;border:1px solid var(--line);border-radius:3px;background:var(--bg)}
+.opt.ko{border-color:var(--filter);color:var(--filter);background:var(--filter-soft);font-weight:600}
+.opt.ko::before{content:"✕ "}
+.opt.go{border-color:var(--branch);color:var(--branch);background:var(--branch-soft)}
+.q.is-filter{box-shadow:inset 3px 0 0 var(--filter)}
+.q.is-branch{box-shadow:inset 3px 0 0 var(--branch);background:var(--branch-soft)}
+.q.is-info .qt{font-style:italic;color:var(--info)}
+.note{grid-column:2;font-size:12px;color:var(--filter)}
+details.opts summary{cursor:pointer;color:var(--accent)}
+details.opts[open]{display:block}
+details.opts[open] .list{display:flex;flex-wrap:wrap;gap:4px 6px;margin-top:6px}
+
+.fork{display:flex;flex-direction:column;gap:0}
+.forkbar{height:2px;background:var(--branch);margin:0 10%}
+.lines{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding-top:14px;position:relative}
+@media (max-width:1100px){.lines{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+.lines .sec>h2{font-size:15px;background:var(--branch-soft)}
+.lines .q{grid-template-columns:30px minmax(0,1fr);padding:8px 10px}
+.joinbar{height:2px;background:var(--line);margin:14px 10% 0}
+
+.end{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px}
+.step b{display:block;font-family:var(--f-display);font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:2px}
+
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:16px;min-width:0}
+@media (max-width:980px){aside{position:static}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px}
+.panel h3{margin:0 0 8px;font-family:var(--f-display);font-size:16px;font-weight:700}
+.panel ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.panel .k{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600}
+.panel p{margin:0 0 8px;font-size:12.5px;color:var(--muted)}
+.ko-txt{color:var(--filter);font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Asesorías Especialistas 2027 · Convenio INDAP–GORE Los Ríos</div>
+    <h1>Recorrido del formulario de postulación asistida</h1>
+    <p>Pregunta por pregunta, tal como está hoy en Google Forms al 14 de octubre de 2026. Es la base para el proceso inverso hacia la planilla de puntaje: los códigos en verde son los del Pre-base v3.2, y donde el formulario no trae código se asignó el que corresponde.</p>
+    <div class="legend">
+      <span><i class="chip u-filtro">Filtro</i> una respuesta deja fuera</span>
+      <span><i class="chip u-puntua">Puntúa</i> entra al puntaje</span>
+      <span><i class="chip u-equipo">Equipo</i> la completa el equipo del Convenio</span>
+      <span><i class="chip u-registro">Registro</i> identificación o logística</span>
+      <span><i class="chip u-ramifica">Ramifica</i> abre una sección</span>
+      <span><i class="chip u-instruccion">Instrucción</i> texto para el profesional</span>
+      <span><b>•</b> obligatoria</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="flow" id="flow"></div>
+    <aside>
+      <div class="panel">
+        <h3>Filtros y cortes</h3>
+        <p>Forms no detiene el llenado: el corte se aplica en la planilla de respuestas.</p>
+        <ul>
+          <li><span class="k">F1</span> Fuera de Los Ríos: <span class="ko-txt">No cumple</span></li>
+          <li><span class="k">F2</span> Usuario INDAP: <span class="ko-txt">No Cumple</span></li>
+          <li><span class="k">F3</span> Deudas o rendiciones: <span class="ko-txt">No cumple</span></li>
+          <li><span class="k">F4</span> Doble incentivo: <span class="ko-txt">No cumple</span></li>
+          <li><span class="k">F5</span> Compromiso 12 meses: <span class="ko-txt">No</span></li>
+          <li><span class="k">F6</span> Registro de Receptores: <span class="ko-txt">No cumple</span></li>
+          <li><span class="k">A1</span> Agroecología: <span class="ko-txt">Menos de 0,5 ha</span></li>
+          <li><span class="k">M0</span> Maquinaria: <span class="ko-txt">No</span> dispone</li>
+          <li><span class="k">V0</span> Agregación de valor: <span class="ko-txt">No</span> produce</li>
+          <li><span class="k">C0</span> Cooperativas: <span class="ko-txt">Ninguna</span></li>
+          <li><span class="k">1.1 × 1.11</span> Persona natural que elige Gestión cooperativa: <span class="ko-txt">no admisible</span>. Cruce que hoy no tiene pregunta propia.</li>
+          <li><span class="k">Pendiente</span> F1 y F6 aceptan "Pendiente de documento": sigue en curso hasta acreditar.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Cambios respecto del Pre-base v3.2</h3>
+        <p>Lo que hay que llevar de vuelta a la planilla.</p>
+        <ul>
+          <li><span class="k">P7</span> Tramo RSH: no está en el formulario.</li>
+          <li><span class="k">P3</span> Pasa de 6 a 7 tramos: Micro 3 se divide en 600 a 1.000 y 1.000 a 2.400 UF, con montos en pesos. Faltan las notas.</li>
+          <li><span class="k">F2</span> Agrega "Es Usuario" y quita "Pendiente".</li>
+          <li><span class="k">F3 F4</span> Quitan "Pendiente de documento".</li>
+          <li><span class="k">F5</span> Compromiso de 12 meses, Sí o No, para leer en voz alta.</li>
+          <li><span class="k">F7</span> El requisito de línea queda en el texto inicial y en A1, M0, V0 y C0.</li>
+          <li><span class="k">P5</span> Se agrega el texto con los rubros priorizados por línea.</li>
+          <li><span class="k">0.3</span> Desplegable con 9 agencias.</li>
+          <li><span class="k">0.5</span> "Presencial en Agencia de Área" pasa a "Presencial en Oficina".</li>
+          <li><span class="k">1.7</span> Se separa en teléfono y correo, ambos obligatorios.</li>
+          <li><span class="k">1.8 1.9</span> Número de asesorados y nómina pasan a opcionales; la nómina es carga de archivo.</li>
+          <li><span class="k">1.11</span> La línea se elige al final de la parte común.</li>
+          <li><span class="k">5.3</span> La copia firmada sale del formulario: llega por correo y se respalda aparte.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+const T={0:"Texto corto",1:"Párrafo",2:"Opción múltiple",3:"Desplegable",4:"Casillas",5:"Escala 1 a 7",6:"Texto",9:"Fecha",13:"Carga de archivo"};
+const CU=["Cumple","No cumple","Pendiente de documento"], SN=["Sí","No"];
+// [código, pregunta, tipo, uso, obligatoria, opciones, respuestas que excluyen, nota]
+const S0=[
+ ["—","Antes de comenzar: revisión previa de admisibilidad, requisitos comunes y requisito propio de cada línea",6,"instruccion",0],
+ ["0.1","Nombre completo del profesional que completa el formulario",0,"registro",1],
+ ["0.2","Institución y cargo del profesional",3,"registro",1,["Agencia de Área INDAP","Equipo Convenio INDAP–GORE","Otro programa INDAP"]],
+ ["0.3","Agencia de Área que corresponde al domicilio del postulante",3,"registro",1,["Paillaco","Rio Bueno","La Union","Valdivia","Mariquina","Lanco","Los Lagos","Panguipulli","Futrono"]],
+ ["0.4","Fecha de la entrevista",9,"registro",1],
+ ["0.5","Modalidad de la entrevista",2,"registro",1,["Presencial en Oficina","Visita a terreno","Telefónica o videollamada"]],
+ ["0.6","Declaro que completo este formulario en entrevista con el postulante y que registro fielmente lo que declara",4,"registro",1,["Sí, declaro"]]];
+const S1=[
+ ["1.1","Tipo de postulante",2,"registro",1,["Persona natural","Grupo pre-asociativo","Empresa Asociativa Campesina u organización con personalidad jurídica"],[],"Se cruza con 1.11: Persona natural no puede ir a Gestión cooperativa."],
+ ["1.2","Nombre completo o razón social",0,"registro",1],
+ ["1.3","RUT · valida formato 12.345.678-9",0,"registro",1],
+ ["1.4","Nombre y RUT del representante, solo grupos y organizaciones",0,"registro",0],
+ ["1.5","Comuna",3,"registro",1,["Corral","Futrono","La Unión","Lago Ranco","Lanco","Los Lagos","Máfil","Mariquina","Paillaco","Panguipulli","Río Bueno","Valdivia"]],
+ ["1.6","Localidad o sector",0,"registro",1],
+ ["1.7","Teléfono de contacto",0,"registro",1],
+ ["1.7b","Correo electrónico de contacto",0,"registro",1],
+ ["1.8","Número de asesorados: personas que participarán directamente en la asesoría",0,"registro",0],
+ ["—","Aviso: nómina de asesorados con nombre, RUT, sexo, edad y pueblo originario",6,"instruccion",0],
+ ["1.9","Nómina de asesorados · foto o PDF",13,"registro",0],
+ ["1.10","Conectividad disponible para actividades semipresenciales",2,"registro",1,["Internet y computador o tablet","Solo celular con datos","Sin conectividad"]]];
+const S2=[
+ ["F1","Domicilio, predio o emprendimiento ubicado en la Región de Los Ríos",2,"filtro",1,CU,["No cumple"]],
+ ["F2","Cumple los requisitos para ser usuario de INDAP según Ley 18.910, modificada por Ley 19.213",2,"filtro",1,["Es Usuario","Cumple","No Cumple"],["No Cumple"]],
+ ["F3","No tiene deudas morosas, incentivos sin rendir ni copagos SAT adeudados",2,"filtro",1,["Cumple","No cumple"],["No cumple"]],
+ ["F4","No recibe simultáneamente otro incentivo para cofinanciar el mismo apoyo",2,"filtro",1,["Cumple","No cumple"],["No cumple"]],
+ ["F4b","Programas INDAP en que participa actualmente",4,"registro",1,["SAT","PRODESAL","PDTI","Alianzas Productivas","Otro","Ninguno"]],
+ ["F5","Leer en voz alta: compromiso de participar durante los 12 meses del programa, visitas, capacitaciones y actividades",2,"filtro",1,["Si","No"],["No"]],
+ ["F6","Solo organizaciones con PJ: inscrita en el Registro de Receptores de Fondos Públicos, Ley 19.862",2,"filtro",1,["Cumple","No cumple","Pendiente de documento","No aplica"],["No cumple"]]];
+const S3=[
+ ["P1","Participación previa en el Programa INDAP–GORE 2024 o 2025",2,"puntua",1,["Inversión y asesoría","Solo inversión o solo asesoría","No ha participado"]],
+ ["P2","Situación tributaria",2,"puntua",1,["Inicio de actividades en primera categoría","Inscrito en otro registro conforme a la Ley de Cumplimiento Tributario","Sin inicio de actividades"]],
+ ["P3","Tramo de ventas anuales del último año",2,"puntua",1,["Sin ventas","Ventas sin documentación tributaria","Micro 1, hasta 200 UF","Micro 2, 200 a 600 UF","Micro 3, 600 a 1.000 UF","1.000 a 2.400 UF","Sobre 2.400 UF"]],
+ ["P4","Canal de venta principal",2,"puntua",1,["Mixto","Venta directa a consumidor final","Solo a empresas o intermediarios","No vende"]],
+ ["—","Rubros priorizados por línea: guía para responder P5",6,"instruccion",0],
+ ["P5","Rubro principal y su relación con los rubros priorizados de la línea",2,"puntua",1,["Rubro priorizado por la línea","Rubro relacionado","Rubro no priorizado"]],
+ ["P6","Focalización: mujer, menor de 35 años o perteneciente a pueblo originario",2,"puntua",1,["Persona: 2 o más","Persona: 1","Persona: ninguna","Grupo: 50% o más","Grupo: 25% a 49%","Grupo: menos de 25%"]],
+ ["P8","Tenencia del predio o lugar donde desarrolla la actividad",2,"puntua",1,["Propietario","Arriendo, comodato o usufructo con contrato","Sucesión o posesión efectiva en trámite","Ocupación sin título"]],
+ ["P9","Localidad aislada según nómina SUBDERE",2,"puntua",1,SN],
+ ["P10","Relevo generacional: integrantes de la familia que trabajan en el predio",2,"puntua",1,["Menor de 35, distinto del titular","Otros integrantes de la familia","Solo el titular"]],
+ ["P11","Pertenencia a una organización activa",2,"puntua",1,SN],
+ ["P12","Participación en ferias o mercados campesinos",2,"puntua",1,["Regular, al menos una vez al mes","Ocasional","No participa"]],
+ ["P13","Prácticas de sustentabilidad y adaptación al cambio climático que aplica hoy",4,"puntua",1,["Compostaje o residuos","Uso eficiente del agua","Energías renovables","Conservación de suelo","Bosque nativo o biodiversidad","Ninguna"]]];
+const L=[
+ {k:"4A",t:"Agroecología y bioinsumos",q:[
+  ["A1","Superficie para unidad demostrativa de 1 ha",2,"filtro",1,["1 ha o más","0,5 a 1 ha con justificación","Menos de 0,5 ha"],["Menos de 0,5 ha"],"Filtro y puntaje"],
+  ["A2","Etapa de manejo del sistema productivo",2,"puntua",1,["Monocultivo","Rotación","Diversificado"]],
+  ["A3","Acceso a agua o riego",2,"puntua",1,["Derechos inscritos","Riego sin derechos","Sin riego"]],
+  ["A4","Experiencia con bioinsumos",2,"puntua",1,["Elabora y aplica","Usa comprados","Sin experiencia"]],
+  ["A5","Bioinsumos que elabora",4,"puntua",1,["12 opciones"]],
+  ["A6","Usa fertilizantes o plaguicidas de síntesis",2,"puntua",1,["No","Ocasionalmente","Habitual"]],
+  ["A7","Número de especies cultivadas",2,"puntua",1,["5 o más","3 o 4","1 o 2"]],
+  ["A8","Guarda semillas propias",2,"puntua",1,["Ancestrales o ecotípicas","Otras","No"]],
+  ["A9","Análisis de suelo últimos 3 años",2,"puntua",1,SN]]},
+ {k:"4B",t:"Rutas turísticas",q:[
+  ["T1","Producto o servicio vinculado a fusión colonial",4,"puntua",1,["5 opciones"]],
+  ["T2","Ubicación respecto de flujos turísticos",2,"puntua",1,["ZOIT","Cerca de ruta","Fuera"]],
+  ["T3","Infraestructura para visitantes",2,"puntua",1,["En uso","Parcial","Con espacio","No tiene"]],
+  ["T4","Relaciones comerciales en cadena de valor",2,"puntua",1,["Activas","Contactos","No"]],
+  ["T5","Nivel en Turismo Rural INDAP",2,"puntua",1,["Consolidado","En desarrollo","Sin acreditación"]],
+  ["T6","Registro de Prestadores SERNATUR",2,"puntua",1,["Sí","En trámite","No"]],
+  ["T7","Resolución sanitaria, si ofrece alimentos",2,"puntua",1,["Sí","En trámite","No","No aplica"]],
+  ["T8","Sello Manos Campesinas",2,"puntua",1,SN],
+  ["T9","Visitas recibidas el último año",2,"puntua",1,["200 o más","50 a 199","1 a 49","Ninguna"]]]},
+ {k:"4C",t:"Maquinaria agrícola",q:[
+  ["M0","Dispone de maquinaria o implementos en uso",2,"filtro",1,SN,["No"]],
+  ["M1","Origen de la maquinaria",2,"puntua",1,["INDAP–GORE","Otro INDAP o GORE","Propios"]],
+  ["M2","Familias que usan la maquinaria",2,"puntua",1,["6 o más","2 a 5","Solo titular"]],
+  ["M3","Presta servicios a vecinos",2,"puntua",1,["Regular","Ocasional","No"]],
+  ["M4","Capacitación en seguridad y mantención",2,"puntua",1,["Ninguna","Parcial","Completa"]],
+  ["M5","Cantidad de equipos",2,"puntua",1,["4 o más","2 o 3","1"]],
+  ["M6","Superficie u horas por temporada",2,"puntua",1,["Más de 100 ha","30 a 100 ha","Menos de 30 ha"]],
+  ["M7","Reglamento, libro y registro de mantenciones",4,"puntua",1,["Reglamento","Libro","Mantenciones","Ninguno"]],
+  ["M8","Operadores con licencia clase D",2,"puntua",1,["Ninguno","Algunos","Todos"]]]},
+ {k:"4D",t:"Agregación de valor",q:[
+  ["V0","Produce materias primas propias",2,"filtro",1,SN,["No"]],
+  ["V1","Materia prima principal",2,"puntua",1,["Hortalizas","Papas","Berries","Cereales","Leche","Carne"]],
+  ["V2","Disponibilidad de la materia prima",2,"puntua",1,["Regular","Estacional","Insuficiente"]],
+  ["V3","Producto de interés regional",2,"puntua",1,SN],
+  ["V4","Estado de la idea de producto",2,"puntua",1,["Prototipo","Idea definida","Sin idea"]],
+  ["V5","Elabora productos procesados",2,"puntua",1,["Sin resolución","Con resolución","No"]],
+  ["V6","Acceso a agua o riego",2,"puntua",1,["Derechos inscritos","Riego sin derechos","Sin riego"]],
+  ["V7","Demanda para el producto",5,"equipo",0],
+  ["V8","Factibilidad de prototipar",5,"equipo",0]]},
+ {k:"4E",t:"Gestión cooperativa",q:[
+  ["C0","Cooperativa con PJ o grupo con intención",2,"filtro",1,["PJ vigente","Grupo con acta","Ninguna"],["Ninguna"]],
+  ["C1","Situación legal y de gobierno",2,"puntua",1,["Al día","Pendientes","En constitución"]],
+  ["C2","Número de socios activos",2,"puntua",1,["20 o más","10 a 19","Menos de 10"]],
+  ["C3","Ventas conjuntas último año",2,"puntua",1,["Regulares","Ocasionales","No"]],
+  ["C4","Años de funcionamiento",2,"puntua",1,["5 o más","2 a 4","Menos de 2","En constitución"]],
+  ["C5","Balance y gerente designado",4,"puntua",1,["Balance","Gerente","Ninguno"]]]}];
+const S5=[
+ ["5.1","Antecedentes que el profesional tuvo a la vista durante la entrevista",4,"registro",0,"LIST36"],
+ ["5.2","Declaración del postulante y autorización de datos personales, Ley 19.628",4,"registro",1,["Sí, el postulante declara y autoriza"]],
+ ["—","Antes de enviar: revisar con el postulante y recibir copia por correo",6,"instruccion",0],
+ ["5.4","Observaciones del profesional",1,"registro",0]];
+const LIST36=["Cédula o RUT","Acta o certificado de directorio","Nómina de asesorados firmada","Registro INDAP o rol de avalúo","Acreditación INDAP","Registro de programas INDAP","Declaración firmada de compromiso","Certificado Registro de Receptores","Registro del Programa INDAP–GORE","Situación tributaria SII","Carpeta tributaria, F29 o DJ","Boletas y facturas","Cédulas y certificado CONADI","Cartola RSH","Rol, contrato o posesión efectiva","Nómina SUBDERE","Registro de ferias","Certificado de vigencia","Inscripción CBR o DGA","Análisis de suelo","Mapa ZOIT","Certificado SERNATUR","Resolución sanitaria","Registro Turismo Rural","Libro de visitas","Factura o acta de maquinaria","Reglamento o libro de maquinaria","Certificados de capacitación","Licencias clase D","Muestra del producto","Certificado DECOOP y acta","Registro de socios","Facturas de la cooperativa","Copia de balance","Acta de nombramiento","Ninguno"];
+const USO={filtro:"Filtro",puntua:"Puntúa",registro:"Registro",instruccion:"Instrucción",equipo:"Equipo"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function q(r){
+  const [code,txt,t,u,req,opts,ko=[],note]=r;
+  let cls="q"+(u==="filtro"?" is-filter":"")+(u==="instruccion"?" is-info":"");
+  let h=`<li class="${cls}"><span class="code">${esc(code)}</span><span class="qt">${esc(txt)}</span>`;
+  h+=`<span class="meta"><i class="chip u-${u}">${USO[u]}</i><span>${T[t]}</span>${req?'<span class="req">• obligatoria</span>':(u==="instruccion"?"":"<span>opcional</span>")}</span>`;
+  if(opts==="LIST36"){h+=`<details class="opts"><summary>36 opciones</summary><div class="list">${LIST36.map(o=>`<span class="opt">${esc(o)}</span>`).join("")}</div></details>`}
+  else if(opts&&opts.length){h+=`<span class="opts">${opts.map(o=>`<span class="opt${ko.includes(o)?" ko":""}">${esc(o)}</span>`).join("")}</span>`}
+  if(note)h+=`<span class="note">${esc(note)}</span>`;
+  return h+"</li>";
+}
+const sec=(title,sub,desc,rows)=>`<section class="sec"><h2>${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</h2>${desc?`<div class="desc">${esc(desc)}</div>`:""}<ol class="qs">${rows.map(q).join("")}</ol></section>`;
+const conn=l=>`<div class="conn">${l?`<span class="lbl">${esc(l)}</span>`:""}</div>`;
+let H="";
+H+=sec("Inicio","Profesional que asiste","El texto inicial pide revisar la admisibilidad antes de abrir el formulario: lo que sigue en la sección 2 es el registro de esa revisión.",S0);
+H+=conn("Siguiente");
+H+=sec("1. Identificación del postulante","",null,S1);
+H+=conn("Siguiente");
+H+=sec("2. Admisibilidad","Registro de la revisión previa","Estos datos serán verificados posteriormente por profesionales del Programa INDAP–GORE.",S2);
+H+=conn("Siguiente");
+H+=sec("3. Criterios comunes de priorización","Todas las líneas","En grupos y organizaciones, los criterios personales se puntúan según la proporción de asesorados que cumple.",S3);
+H+=conn("Siguiente");
+H+=`<section class="sec"><h2>Línea de asesoría<small>Se postula a una sola línea por formulario</small></h2><ol class="qs"><li class="q is-branch"><span class="code">1.11</span><span class="qt">Línea de asesoría a la que postula</span><span class="meta"><i class="chip u-ramifica">Ramifica</i><span>Opción múltiple</span><span class="req">• obligatoria</span></span><span class="opts">${L.map(l=>`<span class="opt go">${esc(l.t)} → ${l.k}</span>`).join("")}</span></li></ol></section>`;
+H+=`<div class="fork">${conn("Salta según la respuesta")}<div class="forkbar"></div><div class="lines">${L.map(l=>sec(l.k,l.t,null,l.q)).join("")}</div><div class="joinbar"></div>${conn("Todas saltan a la sección 5")}</div>`;
+H+=sec("5. Antecedentes verificados y declaraciones","",null,S5);
+H+=conn("Enviar");
+H+=`<div class="end"><div class="step"><b>1 · Enviar</b>La respuesta llega a la planilla, donde se aplican los cortes y el puntaje.</div><div class="step"><b>2 · Copia por correo</b>El profesional recibe la copia de la postulación.</div><div class="step"><b>3 · Firma</b>Se imprime y la firma el postulante o su representante.</div><div class="step"><b>4 · Respaldo</b>Se archiva en el área o dirección y se envía a xxxxxxx@indap.cl, correo por definir.</div></div>`;
+document.getElementById("flow").innerHTML=H;
+</script>
+
+</body></html>
