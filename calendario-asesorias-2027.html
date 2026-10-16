@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario Asesorías 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabecera sobria, Gantt diario en dos carriles que convergen en el inicio, luego fechas clave y supuestos */
+:root{
+  --bg:#f6f7f2; --surface:#ffffff; --fg:#1e2a1f; --muted:#5d6b5c; --line:#dde2d6;
+  --benef:#3f7a3a; --benef-soft:#d9ead2; --lic:#a8641c; --lic-soft:#f3e2cb;
+  --hito:#1e2a1f; --feriado:#efe3e3; --hoy:#b23a3a;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", system-ui, -apple-system, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a15; --surface:#1b231c; --fg:#e6ebe2; --muted:#9aa897; --line:#2e3a2f;
+  --benef:#7fbf74; --benef-soft:#24402a; --lic:#e0a15a; --lic-soft:#43321d;
+  --hito:#e6ebe2; --feriado:#3a2626; --hoy:#ff7a72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a15; --surface:#1b231c; --fg:#e6ebe2; --muted:#9aa897; --line:#2e3a2f;
+  --benef:#7fbf74; --benef-soft:#24402a; --lic:#e0a15a; --lic-soft:#43321d;
+  --hito:#e6ebe2; --feriado:#3a2626; --hoy:#ff7a72; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+header{display:grid;gap:8px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.05;margin:0;text-wrap:balance}
+.lead{max-width:68ch;color:var(--muted);margin:0}
+.anchor{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:6px;font-size:14px}
+.anchor b{font-family:var(--f-mono);font-weight:500}
+h2{font-family:var(--f-display);font-weight:500;font-size:22px;margin:0 0 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted);margin-bottom:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:10px;border-radius:2px;display:inline-block}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.gantt{min-width:980px;display:grid;grid-template-columns:230px 1fr;font-size:13px}
+.lane-h{grid-column:1/-1;padding:10px 14px 6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid var(--line)}
+.lane-h.b{color:var(--benef)} .lane-h.l{color:var(--lic)} .lane-h.c{color:var(--fg)}
+.label{padding:7px 14px;border-top:1px dashed var(--line);display:grid;gap:1px;min-width:0}
+.label .n{font-weight:600}
+.label .d{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{position:relative;border-top:1px dashed var(--line);min-height:44px}
+.axis{position:relative;height:42px}
+.axis .m{position:absolute;top:4px;font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.axis .w{position:absolute;bottom:4px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);transform:translateX(-50%)}
+.bg{position:absolute;inset:0;pointer-events:none}
+.bg .wk{position:absolute;top:0;bottom:0;background:var(--line);opacity:.35}
+.bg .fer{position:absolute;top:0;bottom:0;background:var(--feriado)}
+.bg .vl{position:absolute;top:0;bottom:0;width:0;border-left:1px solid var(--line)}
+.bg .hoy{position:absolute;top:0;bottom:0;width:0;border-left:2px solid var(--hoy)}
+.bg .fin{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--hito)}
+.bar{position:absolute;top:11px;height:22px;border-radius:4px;display:flex;align-items:center;padding:0 7px;font-size:11.5px;font-weight:600;white-space:nowrap;overflow:hidden}
+.bar.b{background:var(--benef);color:var(--surface)}
+.bar.l{background:var(--lic);color:var(--surface)}
+.bar.bs{background:var(--benef-soft);color:var(--fg);border:1px solid var(--benef)}
+.bar.ls{background:var(--lic-soft);color:var(--fg);border:1px solid var(--lic)}
+.bar.x{background:var(--hoy);color:var(--surface)}
+.sub{position:absolute;top:11px;height:22px;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(255,255,255,.35) 4px 7px);border-radius:4px 0 0 4px;pointer-events:none}
+.ms{position:absolute;top:13px;width:16px;height:16px;transform:translateX(-50%) rotate(45deg);background:var(--hito);border:2px solid var(--surface)}
+.ms.l{background:var(--lic)} .ms.b{background:var(--benef)}
+.mslabel{position:absolute;top:13px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.foot{font-size:12.5px;color:var(--muted);margin-top:8px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:0 8px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.f{font-family:var(--f-mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:1px}
+.tag.b{background:var(--benef-soft);color:var(--benef)} .tag.l{background:var(--lic-soft);color:var(--lic)}
+ol.sup{margin:0;padding-left:20px;display:grid;gap:10px;max-width:68ch}
+ol.sup li b{font-weight:600}
+.alerta{border-left:3px solid var(--hoy);padding:10px 14px;background:var(--surface);border-radius:0 6px 6px 0;max-width:68ch}
+.alerta p{margin:4px 0 0}
+</style>
+</head>
+<body style="margin:0">
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Convenio INDAP–GORE Los Ríos · Asesorías especialistas 2027</div>
+    <h1>Calendario de postulación, licitación e inicio</h1>
+    <p class="lead">Dos carriles en paralelo: la selección de asesorados y las cinco licitaciones en Mercado Público. Ambos convergen en el inicio de ejecución, fijado para la última semana de diciembre.</p>
+    <div class="anchor">
+      <span>Entrega a MP <b>lun 19 oct</b></span>
+      <span>Postulación <b>vie 23 – vie 30 oct</b></span>
+      <span>Comité técnico <b>16 – 20 nov</b></span>
+      <span>Inicio de ejecución <b>lun 28 dic</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Carta Gantt</h2>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--benef)"></i>Asesorados</span>
+      <span><i class="sw" style="background:var(--lic)"></i>Licitaciones</span>
+      <span><i class="sw" style="background:var(--lic);background-image:repeating-linear-gradient(135deg,transparent 0 3px,rgba(255,255,255,.45) 3px 5px)"></i>Preguntas del mercado</span>
+      <span><i class="sw" style="background:var(--hoy)"></i>Plazo externo</span>
+      <span><i class="sw" style="background:var(--feriado)"></i>Feriado</span>
+      <span><i class="sw" style="background:var(--hoy);width:3px"></i>Hoy</span>
+    </div>
+    <div class="scroll"><div class="gantt" id="g"></div></div>
+    <p class="foot">Plazos de publicación en días corridos. LP a 20 días y LE a 10 días, ambas publicadas el martes 10 de noviembre.</p>
+  </section>
+
+  <div class="grid2">
+    <section>
+      <h2>Fechas clave</h2>
+      <table>
+        <thead><tr><th>Fecha</th><th>Hito</th></tr></thead>
+        <tbody>
+          <tr><td class="f">vie 16 oct</td><td>Cerrar 2 o 3 de los 5 documentos <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">lun 19 oct</td><td>Entrega de 2 LP y 3 LE al encargado de MP <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">19 – 22 oct</td><td>Reuniones con las Áreas <span class="tag b">ASE</span></td></tr>
+          <tr><td class="f">23 – 30 oct</td><td>Postulación asistida, 5 formularios <span class="tag b">ASE</span></td></tr>
+          <tr><td class="f">vie 6 nov</td><td>Bases aprobadas por resolución <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">mar 10 nov</td><td>Publicación de las 5 licitaciones <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">vie 13 nov</td><td>Cierre de evaluación de postulaciones <span class="tag b">ASE</span></td></tr>
+          <tr><td class="f">16 – 20 nov</td><td>Comité técnico, nómina de asesorados <span class="tag b">ASE</span></td></tr>
+          <tr><td class="f">vie 20 nov</td><td>Cierre LE · respuestas a preguntas LP <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">lun 30 nov</td><td>Cierre LP <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">vie 4 dic</td><td>Adjudicación LE <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">vie 11 dic</td><td>Adjudicación LP <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">mié 23 dic</td><td>Contratos firmados, todas las líneas <span class="tag l">LIC</span></td></tr>
+          <tr><td class="f">lun 28 dic</td><td>Inicio de ejecución y reunión de arranque</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supuestos a confirmar</h2>
+      <ol class="sup">
+        <li><b>Tramo de las LP.</b> Se asume que cada LP queda entre 1.000 y 5.000 UTM, con 20 días corridos de publicación. Si alguna supera las 5.000 UTM, sube a 30 días y la LP se corre una semana.</li>
+        <li><b>Revisión de bases.</b> Se dan tres semanas entre la entrega a MP y la resolución aprobatoria, incluyendo jurídica y un eventual visto bueno del GORE.</li>
+        <li><b>Preguntas del mercado.</b> LP: consultas del 10 al 16 de noviembre y respuestas hasta el 20. LE: consultas del 10 al 13 y respuestas hasta el 16.</li>
+        <li><b>Margen de las LE.</b> Al cerrar antes, las LE dejan holgura de reacción; un segundo llamado por desierta igual empujaría esa línea a enero.</li>
+        <li><b>Contrato.</b> Ocho días hábiles entre adjudicación y firma para garantía de fiel cumplimiento y documentos.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="alerta">
+    <b>Punto abierto: facturación 2026</b>
+    <p>Con inicio el 28 de diciembre no alcanza a haber plan de trabajo aprobado ni factura antes del 31. Para devengar los 120 millones con presupuesto 2026 hay que adelantar el inicio de las LE a mediados de diciembre, o ligar el primer pago a la firma del contrato o a la entrega del plan.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  const Y=2026, START=new Date(Y,9,16), END=new Date(Y,11,31);
+  const DAY=864e5, N=Math.round((END-START)/DAY)+1;
+  const d=(m,dd)=>new Date(Y,m-1,dd);
+  const pct=x=>((x-START)/DAY)/N*100;
+  const pctEnd=x=>((x-START)/DAY+1)/N*100;
+  const FER=[d(12,8),d(12,25)];
+  const fmt=x=>x.toLocaleDateString('es-CL',{day:'numeric',month:'short'}).replace('.','');
+
+  const rows=[
+    {lane:'Asesorados',k:'b'},
+    {n:'Reuniones con las Áreas',a:d(10,19),b:d(10,22),c:'b'},
+    {n:'Postulación asistida',a:d(10,23),b:d(10,30),c:'b',t:'5 formularios'},
+    {n:'Evaluación de postulaciones',a:d(11,2),b:d(11,13),c:'bs'},
+    {n:'Comité técnico',a:d(11,16),b:d(11,20),c:'b',t:'Nómina'},
+    {lane:'Licitaciones Mercado Público',k:'l'},
+    {n:'Cierre de documentos',ms:d(10,16),c:'l',t:'Hoy: 2 o 3 listos'},
+    {n:'Entrega al encargado MP',ms:d(10,19),c:'l',t:'2 LP + 3 LE'},
+    {n:'Revisión y resolución de bases',a:d(10,19),b:d(11,6),c:'x',t:'No depende de nosotros'},
+    {n:'LP · publicación 20 días',a:d(11,10),b:d(11,30),c:'l',sub:[d(11,10),d(11,20)],t:'Preguntas y respuestas'},
+    {n:'LE · publicación 10 días',a:d(11,10),b:d(11,20),c:'l',sub:[d(11,10),d(11,16)],t:'P&R'},
+    {n:'Evaluación LE',a:d(11,23),b:d(12,3),c:'ls',ms2:d(12,4),t2:'Adjudica'},
+    {n:'Evaluación LP',a:d(12,1),b:d(12,10),c:'ls',ms2:d(12,11),t2:'Adjudica'},
+    {n:'Garantía y contrato LE',a:d(12,7),b:d(12,16),c:'ls'},
+    {n:'Garantía y contrato LP',a:d(12,14),b:d(12,23),c:'ls'},
+    {lane:'Convergencia',k:'c'},
+    {n:'Inicio de ejecución',ms:d(12,28),c:'h',t:'Arranque con consultoras'}
+  ];
+
+  const g=document.getElementById('g');
+  const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+
+  function bgLayer(){
+    const bg=el('div','bg');
+    for(let i=0;i<N;i++){const x=new Date(START.getTime()+i*DAY);const wd=x.getDay();
+      if(wd===0||wd===6){const s=el('div','wk');s.style.left=pct(x)+'%';s.style.width=(100/N)+'%';bg.appendChild(s)}
+      if(wd===1){const v=el('div','vl');v.style.left=pct(x)+'%';bg.appendChild(v)}}
+    FER.forEach(f=>{const s=el('div','fer');s.style.left=pct(f)+'%';s.style.width=(100/N)+'%';bg.appendChild(s)});
+    const h=el('div','hoy');h.style.left=(pct(START)+50/N)+'%';bg.appendChild(h);
+    const fi=el('div','fin');fi.style.left=(pct(d(12,28))+50/N)+'%';bg.appendChild(fi);
+    return bg;
+  }
+
+  g.appendChild(el('div','label',''));
+  const ax=el('div','axis');ax.appendChild(bgLayer());
+  [[d(10,16),'Octubre'],[d(11,1),'Noviembre'],[d(12,1),'Diciembre']].forEach(([x,t])=>{const m=el('div','m',t);m.style.left='calc('+pct(x)+'% + 4px)';ax.appendChild(m)});
+  for(let i=0;i<N;i++){const x=new Date(START.getTime()+i*DAY);if(x.getDay()===1){const w=el('div','w',x.getDate());w.style.left=(pct(x)+50/N)+'%';ax.appendChild(w)}}
+  g.appendChild(ax);
+
+  rows.forEach(r=>{
+    if(r.lane){g.appendChild(el('div','lane-h '+r.k,r.lane));return}
+    const range=r.ms?fmt(r.ms):fmt(r.a)+' – '+fmt(r.b);
+    g.appendChild(el('div','label','<span class="n">'+r.n+'</span><span class="d">'+range+'</span>'));
+    const tr=el('div','track');tr.appendChild(bgLayer());
+    if(r.ms){
+      const m=el('div','ms '+(r.c==='h'?'':r.c));m.style.left=(pct(r.ms)+50/N)+'%';tr.appendChild(m);
+      const lb=el('div','mslabel',r.t||'');
+      if(pct(r.ms)>75){lb.style.right='calc('+(100-pct(r.ms))+'% + 6px)'}else{lb.style.left='calc('+pctEnd(r.ms)+'% + 6px)'}
+      tr.appendChild(lb);
+    }else{
+      const b=el('div','bar '+r.c,r.t||'');b.style.left=pct(r.a)+'%';b.style.width=(pctEnd(r.b)-pct(r.a))+'%';tr.appendChild(b);
+      if(r.sub){const s=el('div','sub');s.style.left=pct(r.sub[0])+'%';s.style.width=(pctEnd(r.sub[1])-pct(r.sub[0]))+'%';tr.appendChild(s)}
+      if(r.ms2){const m=el('div','ms l');m.style.left=(pct(r.ms2)+50/N)+'%';tr.appendChild(m);
+        const lb=el('div','mslabel',r.t2);lb.style.left='calc('+pctEnd(r.ms2)+'% + 6px)';tr.appendChild(lb)}
+    }
+    g.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>
